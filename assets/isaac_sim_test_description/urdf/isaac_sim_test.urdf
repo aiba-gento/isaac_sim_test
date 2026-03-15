@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<robot name="isaac_sim_test" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="2.0324240097617325e-17 6.774746699205776e-18 0.012551087228986178" rpy="0 0 0"/>
+    <mass value="2.6346126748009913"/>
+    <inertia ixx="0.002697" iyy="0.002697" izz="0.004198" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hoge_link_1">
+  <inertial>
+    <origin xyz="0.0 1.9102770471984883e-17 0.034002478837788945" rpy="0 0 0"/>
+    <mass value="1.4015375582669964"/>
+    <inertia ixx="0.001055" iyy="0.001055" izz="0.001501" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/hoge_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="../meshes/hoge_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="joint_1" type="continuous">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hoge_link_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
